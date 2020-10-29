@@ -1,8 +1,6 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const path = require('path')
-const _ = require('lodash')
+import express from 'express'
+import bodyParser from 'body-parser'
+import cors from 'cors'
 
 const app = express()
 
