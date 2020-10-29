@@ -31,7 +31,7 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (req, res) => {
-    const pathToHTML = `${__dirname}\\index.html`
+    const pathToHTML = `${__dirname}\\public\\index.html`
 
     res.sendFile(pathToHTML)
 })
