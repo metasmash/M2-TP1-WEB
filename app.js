@@ -1,17 +1,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
+const path = require('path')
+const _ = require('lodash')
 
 const app = express()
 
-  
 const corsOptions = {
-    origin: [
-        'https://miage-tournament.tk',
-        'https://dev.miage-tournament.tk',
-        'http://localhost:3000',
-    ],
+    origin: ['http://localhost:3000'],
 }
 
 app.use(cors(corsOptions))
@@ -31,9 +27,13 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 9998
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`)
 })
 
-module.exports = app
+app.get('/', (req, res) => {
+    const pathToHTML = `${__dirname}\\index.html`
+
+    res.sendFile(pathToHTML)
+})
