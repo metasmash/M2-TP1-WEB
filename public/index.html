@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-<div class="player">
-    <video controls>
-        <source src="video/sintel-short.mp4" type="video/mp4">
-        <source src="video/sintel-short.mp4" type="video/webm">
-        <!-- fallback contenu ici -->
-    </video>
-    <div class="controls">
-        <button class="play" data-icon="P" aria-label="bascule lecture pause"></button>
-        <button class="stop" data-icon="S" aria-label="stop"></button>
-        <div class="timer">
-            <div></div>
-            <span aria-label="timer">00:00</span>
-        </div>
-        <button class="rwd" data-icon="B" aria-label="retour arrière"></button>
-        <button class="fwd" data-icon="F" aria-label="avance rapide"></button>
+<div id="root">
+<video id="mainvid" controls crossorigin="anonymous">
+    <source src="video/sample.pm4" type="video/mp4">
+    <p>Votre navigateur ne supporte pas la vidéo HTML5. Voici à la place <a href="video/sample.pm4">un lien vers la vidéo</a>.</p>
+</video>
+    <div>
+<button id="play">Play</button> <button id="pause">Pause</button>
     </div>
 </div>
 </body>
+
 <script src='src/index.js'></script>
 </html>
