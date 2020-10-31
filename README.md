@@ -27,7 +27,7 @@ Access to our regular html css JS application:
  
 - [ ] Reprenez le cours sur les WebComponents (transparents + le module 4.2 du MOOC HTML5 Apps and Games) et essayez de transformer le nouveau lecteur amélioré en <my-player src="...." loop="...">titre du lecteur</myplayer>.
 
-- [ ] En ajoutant ce tag dans une page HTML cela doit fonctionner. Vous mettrez l'ensemble des codes JS  du WebComponent dans un fichier myPlayer/index.js. C'est ce fichier que vous importerez comme un JS module dans la page HTML pour que cela fonctionne.
+- [ ] En ajoutant ce tag dans une page HTML cela doit fonctionner. Vous mettrez l'ensemble des codes JS  du WebComponent dans un fichier myPlayer/app.js. C'est ce fichier que vous importerez comme un JS module dans la page HTML pour que cela fonctionne.
  
 - [ ] Maintenant, regardez les module 1.5.1 à 1.5.4 du MOOC "HTML5 Apps and Games" sur l'API WebAudio. Prenez un peu de temps pour lire les sections jusqu'à l'exemple qui ajoute un equalizer de fréquences.
 Vous ajouterez dans le code de votre lecteur WebComponent de quoi régler le volume, la balance gauche/droite, et un égaliseur. Si vous vous sentez vous pourrez aussi rajouter un réglage de la réverbération comme proposé dans un autre exemple.

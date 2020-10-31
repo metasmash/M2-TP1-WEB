@@ -1,6 +1,4 @@
-const isLoaded = () => console.log({ isLoaded: true })
-
-isLoaded()
+import './component/customVideoLectorComponent'
 
 const button = {
     play: document.querySelector('#play'),
@@ -37,6 +35,7 @@ button.recul.addEventListener('click', () => {
 
 button.loop.addEventListener('click', () => {
     videoLector.loop = !videoLector.loop
+    console.log(true)
     button.loop.style.backgroundColor = videoLector.loop
         ? '#33FF3380'
         : '#FF333380'

@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: black">
 <div id="root">
 <video id="mainvid" controls crossorigin="anonymous">
     <source src="video/sample.pm4" type="video/mp4">
     <p>Votre navigateur ne supporte pas la vidéo HTML5. Voici à la place <a href="video/sample.pm4">un lien vers la vidéo</a>.</p>
 </video>
     <div id="buttonGroup">
-<button id="play">Play</button>
+        <button id="play" class="btn btn-primary">Play</button>
         <button id="pause" class="btn btn-primary">Pause</button>
         <button id="stop" class="btn btn-primary">Stop</button>
         <button id="avance" class="btn btn-primary">+10</button>
@@ -22,7 +22,15 @@
         <button id="loop" class="btn btn-primary">Loop</button>
     </div>
 </div>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
+<custom-player title="HAAAAAAAAAAAAAld"></custom-player>
 </body>
-
 <script src='src/index.js'></script>
+<script type="module" src='src/index.js'></script>
 </html>
