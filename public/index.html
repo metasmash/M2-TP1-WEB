@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -12,8 +13,13 @@
     <source src="video/sample.pm4" type="video/mp4">
     <p>Votre navigateur ne supporte pas la vidéo HTML5. Voici à la place <a href="video/sample.pm4">un lien vers la vidéo</a>.</p>
 </video>
-    <div>
-<button id="play">Play</button> <button id="pause">Pause</button>
+    <div id="buttonGroup">
+<button id="play">Play</button>
+        <button id="pause" class="btn btn-primary">Pause</button>
+        <button id="stop" class="btn btn-primary">Stop</button>
+        <button id="avance" class="btn btn-primary">+10</button>
+        <button id="recul" class="btn btn-primary">-10</button>
+        <button id="loop" class="btn btn-primary">Loop</button>
     </div>
 </div>
 </body>

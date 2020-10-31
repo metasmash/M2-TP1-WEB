@@ -1,6 +1,6 @@
 #mainvid {
     width:1080px;
-    height:720px;
+    height:500px;
 }
 
 #root {
@@ -11,4 +11,9 @@ button {
     margin:50px;
     width:100px;
     height:100px;
+}
+
+#buttonGroup {
+    display:flex;
+    flex-flow: row wrap;
 }
