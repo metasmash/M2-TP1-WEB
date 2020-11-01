@@ -17,7 +17,7 @@ export default class CustomElementsApp extends HTMLElement {
 <main>
 <h1>${this.title}</h1>
 
-<video id="mainvid" controls crossorigin="anonymous">
+<video id="mainvid" controls crossorigin="anonymous" >
     <source src="video/sample.pm4" type="video/mp4">
     <p>Votre navigateur ne supporte pas la vidéo HTML5. Voici à la place <a href="video/sample.pm4">un lien vers la vidéo</a>.</p>
 </video>
