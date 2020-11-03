@@ -1,4 +1,4 @@
-import './component/customVideoLectorComponent'
+import './component/customVideoLectorComponent.js'
 
 const button = {
     play: document.querySelector('#play'),
