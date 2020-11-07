@@ -19,7 +19,7 @@ export default class CustomElementsApp extends HTMLElement {
 
 <video id="mainvid" controls crossorigin="anonymous" >
     <source src="video/sample.mp4" type="video/mp4">
-    <p>Votre navigateur ne supporte pas la vidéo HTML5. Voici à la place <a href="video/sample.pm4">un lien vers la vidéo</a>.</p>
+    <p>Votre navigateur ne supporte pas la vidéo HTML5. Voici à la place <a href="video/sample.mp4">un lien vers la vidéo</a>.</p>
 </video>
 </main>`
         this.shadowRoot.appendChild(template.content.cloneNode(true))
