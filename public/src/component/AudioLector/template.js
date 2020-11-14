@@ -1,4 +1,6 @@
-const template = `
+const template = document.createElement('template')
+
+template.innerHTML = `
 <style></style>
 <div class="custom-audio-element">Hello world</div>
 `
