@@ -1,5 +1,5 @@
-import './component/VideoLector'
-import './component/AudioLector'
+import './component/VideoLector/index.js'
+import './component/AudioLector/index.js'
 
 const button = {
     play: document.querySelector('#play'),
