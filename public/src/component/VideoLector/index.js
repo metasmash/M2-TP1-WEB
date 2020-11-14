@@ -1,31 +1,58 @@
-const template = document.createElement('template')
+import template from './template.js'
 
 export default class VideoLector extends HTMLElement {
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
-        this.init()
+        this.shadowRoot.appendChild(template.content.cloneNode(true))
+
         this.title = `${this.getAttribute('title')}`
         this.loop = this.getAttribute('loop') === 'true'
-        console.log(this.loop)
+        this.initDom()
+        this.initListeners()
     }
 
-    init() {
-        template.innerHTML = `
-<style>
-.error {
-  background-color: red;
-}
-</style>
-<main>
-<h1>${this.title}</h1>
- 
-<video id="mainvid" controls crossorigin="anonymous" loop >
-    <source src="video/sample.mp4" type="video/mp4">
-    <p>Votre navigateur ne supporte pas la vidéo HTML5. Voici à la place <a href="video/sample.mp4">un lien vers la vidéo</a>.</p>
-</video>
-</main>`
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
+    initDom() {
+        this.button = {
+            play: this.shadowRoot.querySelector('#play'),
+            pause: this.shadowRoot.querySelector('#pause'),
+            stop: this.shadowRoot.querySelector('#stop'),
+            avance: this.shadowRoot.querySelector('#avance'),
+            recul: this.shadowRoot.querySelector('#recul'),
+            loop: this.shadowRoot.querySelector('#loop'),
+        }
+        this.videoLector = this.shadowRoot.querySelector('.video-lector')
+    }
+
+    initListeners = () => {
+        this.button.play.addEventListener('click', () => {
+            this.videoLector.play()
+        })
+
+        this.button.pause.addEventListener('click', () => {
+            this.videoLector.pause()
+        })
+
+        this.button.stop.addEventListener('click', () => {
+            this.videoLector.currentTime = 0
+            this.videoLector.pause()
+        })
+
+        this.button.avance.addEventListener('click', () => {
+            this.videoLector.currentTime += 10
+        })
+
+        this.button.recul.addEventListener('click', () => {
+            this.videoLector.currentTime -= 10
+        })
+
+        this.button.loop.addEventListener('click', () => {
+            this.videoLector.loop = !this.videoLector.loop
+            console.log(true)
+            this.button.loop.style.backgroundColor = this.videoLector.loop
+                ? '#33FF3380'
+                : '#FF333380'
+        })
     }
 }
 
