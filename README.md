@@ -11,9 +11,19 @@ Install dependencies:
 
 `npm i` 
 
+Install parcel:
+
+`npm i -g parcel`
+
 Run the web server:
 
 `npm start`
+
+If it doesnt work, use your own live-server module.
+
+You can access to the application through:
+
+[https://buffa-sound.tk](https://buffa-sound.tk)
 
 Access to our regular html css JS application:
 
