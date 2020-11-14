@@ -7,7 +7,6 @@
     "start": "parcel public/index.html --open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": " http-server ./public -p 3001",
-    "build":"html-build './public/index.html'"
   },
   "repository": {
     "type": "git",
