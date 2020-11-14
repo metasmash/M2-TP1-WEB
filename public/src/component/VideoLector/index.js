@@ -20,6 +20,7 @@ class VideoLector extends HTMLElement {
 
         this.initQuerySelectors().then(() => {
             this.source.src = this.srcAttribute
+            //this.audio.src = this.srcAttribute
             this.shadowRoot.querySelector(
                 '.title'
             ).innerText = this.titleAttribute
@@ -44,6 +45,7 @@ class VideoLector extends HTMLElement {
         }
         this.videoLector = this.shadowRoot.querySelector('.video-lector')
         this.source = this.shadowRoot.querySelector('.video-lector source')
+        this.audio = this.shadowRoot.querySelector('.audio-element')
     }
 
     initListeners = () => {
