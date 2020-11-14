@@ -10,7 +10,6 @@ template.innerHTML = `${css}
     <source src="" type="video/mp4">
     <p>Votre navigateur ne supporte pas la vidéo HTML5.</p>
 </video>
-
     <div id="buttonGroup">
         <button id="play" class="btn btn-primary">Play</button>
         <button id="pause" class="btn btn-primary">Pause</button>
