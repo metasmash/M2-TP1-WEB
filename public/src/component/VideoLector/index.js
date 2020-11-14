@@ -7,6 +7,10 @@ class VideoLector extends HTMLElement {
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
+        this.init()
+    }
+
+    init = () => {
         this.initAttribute().then(() => {
             this.videoLector.loop = !!this.loopAttribute
             this.button.loop.style.backgroundColor = !!this.loopAttribute
@@ -42,7 +46,7 @@ class VideoLector extends HTMLElement {
         this.source = this.shadowRoot.querySelector('.video-lector source')
     }
 
-    initListeners = async () => {
+    initListeners = () => {
         this.button.play.addEventListener('click', () => {
             this.videoLector.play()
         })
