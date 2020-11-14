@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel public/index.html --open",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": " http-server ./public -p 3001",
+    "dev": " http-server ./public -p 3001"
   },
   "repository": {
     "type": "git",
