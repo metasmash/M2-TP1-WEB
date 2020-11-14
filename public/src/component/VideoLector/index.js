@@ -4,10 +4,15 @@ class VideoLector extends HTMLElement {
     constructor() {
         super()
 
-        this.initAttribute()
-
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+        this.initAttribute().then(() => {
+            this.videoLector.loop = !!this.loopAttribute
+            this.button.loop.style.backgroundColor = !!this.loopAttribute
+                ? '#33FF3380'
+                : '#FF333380'
+        })
 
         this.initQuerySelectors().then(() => {
             this.source.src = this.srcAttribute
@@ -18,8 +23,8 @@ class VideoLector extends HTMLElement {
         })
     }
 
-    initAttribute = () => {
-        this.loopAttribute = this.getAttribute('loop')
+    initAttribute = async () => {
+        this.loopAttribute = this.getAttribute('loop') === 'true'
         this.srcAttribute = this.getAttribute('src')
         this.titleAttribute = this.innerHTML
     }
@@ -37,7 +42,7 @@ class VideoLector extends HTMLElement {
         this.source = this.shadowRoot.querySelector('.video-lector source')
     }
 
-    initListeners = () => {
+    initListeners = async () => {
         this.button.play.addEventListener('click', () => {
             this.videoLector.play()
         })
@@ -66,6 +71,8 @@ class VideoLector extends HTMLElement {
                 : '#FF333380'
         })
     }
+
+    initLoop = () => {}
 }
 
 customElements.define('video-player', VideoLector)
