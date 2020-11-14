@@ -3,16 +3,26 @@ import template from './template.js'
 export default class VideoLector extends HTMLElement {
     constructor() {
         super()
+
+        this.initAttribute()
+
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-        this.title = `${this.getAttribute('title')}`
-        this.loop = this.getAttribute('loop') === 'true'
-        this.initDom()
-        this.initListeners()
+        this.initQuerySelectors().then(() => {
+            this.source.src = this.srcAttribute
+            this.shadowRoot.querySelector('.title').innerText = this.titleAttribute
+            this.initListeners()
+        })
     }
 
-    initDom() {
+    initAttribute = () => {
+        this.loopAttribute = this.getAttribute('loop')
+        this.srcAttribute = this.getAttribute('src')
+        this.titleAttribute = this.getAttribute("titre")
+    }
+
+    initQuerySelectors = async () => {
         this.button = {
             play: this.shadowRoot.querySelector('#play'),
             pause: this.shadowRoot.querySelector('#pause'),
@@ -22,6 +32,7 @@ export default class VideoLector extends HTMLElement {
             loop: this.shadowRoot.querySelector('#loop'),
         }
         this.videoLector = this.shadowRoot.querySelector('.video-lector')
+        this.source = this.shadowRoot.querySelector('.video-lector source')
     }
 
     initListeners = () => {
@@ -48,7 +59,6 @@ export default class VideoLector extends HTMLElement {
 
         this.button.loop.addEventListener('click', () => {
             this.videoLector.loop = !this.videoLector.loop
-            console.log(true)
             this.button.loop.style.backgroundColor = this.videoLector.loop
                 ? '#33FF3380'
                 : '#FF333380'
