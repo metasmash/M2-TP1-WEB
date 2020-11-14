@@ -1,5 +1,5 @@
 const template = document.createElement('template')
-import css from './style'
+import css from './style.js'
 
 template.innerHTML = `${css}
 <main>
