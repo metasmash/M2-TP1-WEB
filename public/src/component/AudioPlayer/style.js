@@ -12,7 +12,7 @@ export default `
     display: inline-block;
     padding:10px;
     border-radius: 10px;
-    border: solid #d3fffd;
+    border: solid #d3fffd 1px;
 }
 
 :focus { outline: none; }
@@ -28,6 +28,14 @@ export default `
 }
 
 #title {
+}
+
+#wave-form {
+    width:400px;
+    height:300px;
+    background-color: black;
+    border: white solid 2px;
+    margin-top:10px;
 }
 
 

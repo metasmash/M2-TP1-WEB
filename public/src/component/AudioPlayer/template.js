@@ -27,6 +27,7 @@ template.innerHTML = `${css}
       <input id="eq-6" type="range" min="-10" max="10" value="0" step="0.01">
     </div>
     </div>
+    <canvas id="wave-form"></canvas>
 </div>
 `
 

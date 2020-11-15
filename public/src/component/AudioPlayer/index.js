@@ -12,6 +12,7 @@ class AudioLector extends HTMLElement {
 
         this.equalizerValues = [60, 170, 350, 1000, 3500, 10000]
         this.filters = []
+        this.fftSize = 1024
 
         this.init().then(() => {
             console.log('Init is a success!!')
@@ -50,7 +51,8 @@ class AudioLector extends HTMLElement {
         this.filters[this.filters.length - 1].connect(this.panNode)
 
         this.panNode.connect(this.gainNode)
-        this.gainNode.connect(this.dest)
+        this.gainNode.connect(this.analyser)
+        this.analyser.connect(this.dest)
     }
 
     initAudioNodes = () => {
@@ -59,6 +61,11 @@ class AudioLector extends HTMLElement {
 
         this.gainNode = this.audioContext.createGain()
         this.panNode = this.audioContext.createStereoPanner()
+        this.analyser = this.audioContext.createAnalyser()
+        this.analyser.fftSize = this.fftSize
+        this.analyser.bufferLength = this.analyser.frequencyBinCount
+        this.analyser.dataArray = new Uint8Array(this.analyser.bufferLength)
+
         this.initEqualizer()
     }
 
@@ -100,6 +107,7 @@ class AudioLector extends HTMLElement {
             pause: this.shadowRoot.querySelector('#pause'),
         }
         this.title = this.shadowRoot.querySelector('#title')
+        this.canvas = this.shadowRoot.querySelector('#wave-form')
     }
 
     play = () => {
@@ -122,6 +130,49 @@ class AudioLector extends HTMLElement {
             eq.gain.value = 0
             this.filters.push(eq)
         })
+
+        requestAnimationFrame(this.initWaveForm)
+    }
+
+    initWaveForm = () => {
+        let width = this.canvas.width
+        let height = this.canvas.height
+        let canvasContext = this.canvas.getContext('2d')
+
+        canvasContext.fillStyle = 'rgba(0, 0, 0, 0.5)'
+        canvasContext.fillRect(0, 0, width, height)
+
+        this.analyser.getByteTimeDomainData(this.analyser.dataArray)
+
+        canvasContext.lineWidth = 2
+        canvasContext.strokeStyle = 'lightBlue'
+
+        canvasContext.beginPath()
+
+        let sliceWidth = width / this.analyser.bufferLength
+        let x = 0
+
+        for (let i = 0; i < this.analyser.bufferLength; i++) {
+            // dataArray values are between 0 and 255,
+            // normalize v, now between 0 and 1
+            let v = this.analyser.dataArray[i] / 255
+            // y will be in [0, canvas height], in pixels
+            let y = v * height
+
+            if (i === 0) {
+                canvasContext.moveTo(x, y)
+            } else {
+                canvasContext.lineTo(x, y)
+            }
+
+            x += sliceWidth
+        }
+
+        canvasContext.lineTo(this.canvas.width, this.canvas.height / 2)
+
+        canvasContext.stroke()
+
+        requestAnimationFrame(this.initWaveForm)
     }
 }
 
