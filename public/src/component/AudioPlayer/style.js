@@ -42,5 +42,11 @@ a {
 color:white;
 }
 
+  label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+      }
+
 </style>
 `
