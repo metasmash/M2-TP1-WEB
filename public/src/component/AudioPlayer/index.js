@@ -34,7 +34,7 @@ class AudioLector extends HTMLElement {
         }
 
         this.stereoPanner.oninput = (e) => {
-            this.panNode.pan.setValueAtTime(
+            this.panNode.setValueAtTime(
                 e.target.value,
                 this.audioContext.currentTime
             )
