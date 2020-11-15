@@ -131,15 +131,11 @@ class AudioLector extends HTMLElement {
     }
 
     play = () => {
-        this.audioPlayer.play().then(() => {
-            console.log('play')
-        })
+        this.audioPlayer.play()
     }
 
     pause = () => {
-        this.audioPlayer.pause().then(() => {
-            console.log('paused')
-        })
+        this.audioPlayer.pause()
     }
 
     initEqualizer = () => {
