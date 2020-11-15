@@ -1,8 +1,5 @@
 export default `<style> 
 
-* {
-pointer-events: none;
-}
 
 
 #mainvid {

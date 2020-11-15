@@ -1,10 +1,6 @@
 export default `
 <style>
 
-* {
-pointer-events: none;
-}
-
 #root {
     margin-bottom: 5%;
     margin-left:30px;
