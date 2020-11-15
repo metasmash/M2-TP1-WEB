@@ -17,7 +17,7 @@ class AudioLector extends HTMLElement {
 
         this.init().then(async () => {
             await this.initDraw()
-            console.log('Init is a success!!')
+            console.log(`${this.title}: Initialisation is a success!!`)
         })
     }
 
@@ -30,7 +30,7 @@ class AudioLector extends HTMLElement {
 
         try {
             this.connectAudioNodes().then(() => {
-                console.log('Audio node schema is mounted!')
+                console.log(`${this.title}: Audio node schema is mounted!`)
             })
         } catch (e) {
             console.log('there is an error connecting audio nodes!')
