@@ -1,5 +1,11 @@
 # M2-TP1-WEB
 
+_______________
+#### PLEASE USE MICROSOFT EDGE
+#### IDK WHY CHROME DOESNT WORK FFS
+![alt text](https://cdn.iconscout.com/icon/free/png-256/microsoft-edge-4-722714.png)
+_______________
+
 ### Here:
 
 We are going to create some cool web-components using shadow-dom.
