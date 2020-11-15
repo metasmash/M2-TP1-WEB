@@ -1,4 +1,5 @@
 import template from './template.js'
+import '../../../lib/webaudio-controls.js'
 
 let ctx = window.AudioContext || window.webkitAudioContext
 
@@ -31,6 +32,7 @@ class AudioLector extends HTMLElement {
         } catch (e) {
             console.log('there is an error connecting audio nodes!')
         }
+        this.shadowRoot.querySelector('#title').innerHTML = this.titleAttribute
         this.initEventListener()
     }
 
@@ -97,6 +99,7 @@ class AudioLector extends HTMLElement {
             play: this.shadowRoot.querySelector('#play'),
             pause: this.shadowRoot.querySelector('#pause'),
         }
+        this.title = this.shadowRoot.querySelector('#title')
     }
 
     play = () => {
@@ -112,9 +115,9 @@ class AudioLector extends HTMLElement {
     }
 
     initEqualizer = () => {
-        this.equalizerValues.forEach((e) => {
+        this.equalizerValues.forEach((freq) => {
             const eq = this.audioContext.createBiquadFilter()
-            eq.frequency.value = e
+            eq.frequency.value = freq
             eq.type = 'peaking'
             eq.gain.value = 0
             this.filters.push(eq)
