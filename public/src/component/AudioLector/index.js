@@ -57,9 +57,11 @@ class AudioLector extends HTMLElement {
 
     connectGain = () => {
         //TODO: fix the connection problem, the audio won't load...
-        let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
-            this.audioPlayer
-        )
+        //Uncomment the lines below to see the problem.
+
+        //let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
+        //    this.audioPlayer
+        //)
 
         gainAudioPlayerSource.connect(this.gainNode)
         this.gainNode.connect(this.dest)
