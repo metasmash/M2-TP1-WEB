@@ -1,12 +1,15 @@
 import template from './template.js'
 
-const audioContext = window.AudioContext || window.webkitAudioContext
+let ctx = window.AudioContext || window.webkitAudioContext
 
 class AudioLector extends HTMLElement {
     constructor() {
         super()
 
-        this.audioContext = new audioContext()
+        this.audioContext = new ctx()
+        this.dest = this.audioContext.destination
+
+        this.gainNode = this.audioContext.createGain()
 
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
@@ -17,8 +20,18 @@ class AudioLector extends HTMLElement {
     init = () => {
         this.initQuerySelectors()
         this.initAttribute().then(() => {
-            this.audioElement.src = this.srcAttribute
+            this.audioPlayer.src = this.srcAttribute
         })
+        this.connectGain()
+        this.initEventListener()
+    }
+
+    initEventListener = () => {
+        this.gainSlider.oninput = (e) => {
+            console.log(`Volume changed to: ${e.target.value}`)
+            this.gainNode.gain.value = e.target.value
+        }
+        this.button.play.addEventListener('click', this.play)
     }
 
     initAttribute = async () => {
@@ -27,7 +40,29 @@ class AudioLector extends HTMLElement {
     }
 
     initQuerySelectors = () => {
-        this.audioElement = this.shadowRoot.querySelector('.audio-element')
+        this.audioPlayer = this.shadowRoot.querySelector('.audio-element')
+        this.gainSlider = this.shadowRoot.querySelector('#gain')
+        this.panner = this.shadowRoot.querySelector('#panner')
+        this.button = {
+            play: this.shadowRoot.querySelector('#play'),
+            pause: this.shadowRoot.querySelector('#pause'),
+        }
+    }
+
+    play = () => {
+        this.audioPlayer.play().then(() => {
+            console.log('play enabled')
+        })
+    }
+
+    connectGain = () => {
+        //TODO: fix the connection problem, the audio won't load...
+        let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
+            this.audioPlayer
+        )
+
+        gainAudioPlayerSource.connect(this.gainNode)
+        this.gainNode.connect(this.dest)
     }
 }
 
