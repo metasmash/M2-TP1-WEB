@@ -10,7 +10,7 @@ class AudioLector extends HTMLElement {
         this.dest = this.audioContext.destination
 
         this.gainNode = this.audioContext.createGain()
-        this.panNode = this.audioContext.createPanner()
+        this.panNode = this.audioContext.createStereoPanner()
 
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
@@ -34,7 +34,8 @@ class AudioLector extends HTMLElement {
         }
 
         this.stereoPanner.oninput = (e) => {
-            this.panNode.setValueAtTime(
+            console.log(this.panNode)
+            this.panNode.pan.setValueAtTime(
                 e.target.value,
                 this.audioContext.currentTime
             )
@@ -80,9 +81,9 @@ class AudioLector extends HTMLElement {
         let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
             this.audioPlayer
         )
-        gainAudioPlayerSource.connect(this.gainNode)
-        this.gainNode.connect(this.panNode)
-        this.panNode.connect(this.dest)
+        gainAudioPlayerSource.connect(this.panNode)
+        this.panNode.connect(this.gainNode)
+        this.gainNode.connect(this.dest)
     }
 }
 
