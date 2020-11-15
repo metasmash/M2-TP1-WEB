@@ -14,9 +14,9 @@ export default `<style>
 }
 
 button {
-    margin:50px;
-    width:100px;
-    height:100px;
+    margin:10px;
+    width:50px;
+    height:50px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
