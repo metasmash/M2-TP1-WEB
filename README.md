@@ -27,7 +27,7 @@ You can access to the application through:
 
 Access to our regular html css JS application:
 
-[http://localhost:9998](http://localhost:9998)
+[http://localhost:9998](http://localhost:1234)
 
 ## How to use
 
