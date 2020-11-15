@@ -29,6 +29,24 @@ Access to our regular html css JS application:
 
 [http://localhost:9998](http://localhost:9998)
 
+## How to use
+
+Go to index.html on public/index.html, and insert a custom component defined like this:
+
+`<video-player  src="" loop=true >TITLE</video-player>`
+
+`src`  our source video declared with a path.
+
+`loop`  accept true, any other values or undefined are considered as false.
+
+`TITLE `  Our title we want to display for our video-player component
+
+`<audio-player  src=""  >TITLE</audio-player>`
+
+`src`  our source video declared with a path.
+
+`TITLE `  Our title we want to display for our audio-player component
+
 ### DONE:
 
 - [x] Créer une  page HTML avec à l'intérieur un lecteur audio ou un lecteur video, vous pourrez reprendre le code d'exemples du MOOC présentant l'API des lecteurs audio et vidéo
