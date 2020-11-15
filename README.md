@@ -45,6 +45,7 @@ Vous ajouterez dans le code de votre lecteur WebComponent de quoi régler le vol
  
  ### TODO:
 - [ ] On va maintenant cacher le lecteur audio et utiliser la librairie webaudiocontrols qui fournit des WebComponents pour l'audio (boutons rotatifs etc.). Vous importerez donc le fichier webaudiocontrols.js dans le code JavaScript de votre Web Component (import "lib/webaudiocontrols.js" par exemple, après avoir récupéré le fichier). La documentation d'utilisation montre comment ajouter des boutons rotatifs, des sliders, des switches, etc. par exemple pour le réglage du volume, de la balance, etc. Dans la doc on montre comment récupérer des images custom pour les boutons, sliders, etc. Il y a un très large choix (des centaines de spritesheets), à vous de vous amuser...
+
 - [ ] Pour les plus curieux, un tuto pour générer soi-même ses propres spritesheets webaudiocontrols : https://www.youtube.com/watch?v=z8_0_cJogP4
  
 - [ ] Maintenant, continuez la lecture du cours sur la WebAudio API et lisez les modules 1.5.5 à 1.5.7 sur les visualisations du signal audio. Vous ajouterez à votre WebComponent un ou plusieurs canvas pour visualiser tout d'abord les fréquences. Testez le résultat, n'oubliez pas de jouer sur vos réglages pour voir si cela affecte bien la visualisation.

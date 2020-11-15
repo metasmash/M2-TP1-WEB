@@ -9,20 +9,28 @@ class AudioLector extends HTMLElement {
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-        this.init()
+        this.equalizerValues = [60, 170, 350, 1000, 3500, 10000]
+        this.filters = []
+
+        this.init().then(() => {
+            console.log('Init is a success!!')
+        })
     }
 
-    init = () => {
+    init = async () => {
         this.initAudioNodes()
         this.initQuerySelectors()
         this.initAttribute().then(() => {
             this.audioPlayer.src = this.srcAttribute
         })
 
-        this.connectAudioNodes().then(() => {
-            console.log('Audio node schema is mounted!')
-        })
-
+        try {
+            this.connectAudioNodes().then(() => {
+                console.log('Audio node schema is mounted!')
+            })
+        } catch (e) {
+            console.log('there is an error connecting audio nodes!')
+        }
         this.initEventListener()
     }
 
@@ -30,7 +38,15 @@ class AudioLector extends HTMLElement {
         let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
             this.audioPlayer
         )
-        gainAudioPlayerSource.connect(this.panNode)
+
+        gainAudioPlayerSource.connect(this.filters[0])
+
+        for (let i = 0; i < this.filters.length - 1; i++) {
+            this.filters[i].connect(this.filters[i + 1])
+        }
+
+        this.filters[this.filters.length - 1].connect(this.panNode)
+
         this.panNode.connect(this.gainNode)
         this.gainNode.connect(this.dest)
     }
@@ -41,6 +57,7 @@ class AudioLector extends HTMLElement {
 
         this.gainNode = this.audioContext.createGain()
         this.panNode = this.audioContext.createStereoPanner()
+        this.initEqualizer()
     }
 
     initEventListener = () => {
@@ -59,6 +76,12 @@ class AudioLector extends HTMLElement {
 
         this.button.play.addEventListener('click', this.play)
         this.button.pause.addEventListener('click', this.pause)
+
+        this.equalizerInputs.forEach((e, i) => {
+            e.oninput = (e) => {
+                this.filters[i].gain.value = e.target.value
+            }
+        })
     }
 
     initAttribute = async () => {
@@ -70,6 +93,7 @@ class AudioLector extends HTMLElement {
         this.audioPlayer = this.shadowRoot.querySelector('.audio-element')
         this.gainSlider = this.shadowRoot.querySelector('#gain')
         this.stereoPanner = this.shadowRoot.querySelector('#panner')
+        this.equalizerInputs = this.shadowRoot.querySelectorAll('[id^=eq-]')
         this.button = {
             play: this.shadowRoot.querySelector('#play'),
             pause: this.shadowRoot.querySelector('#pause'),
@@ -85,6 +109,16 @@ class AudioLector extends HTMLElement {
     pause = () => {
         this.audioPlayer.pause().then(() => {
             console.log('paused')
+        })
+    }
+
+    initEqualizer = () => {
+        this.equalizerValues.forEach((e) => {
+            const eq = this.audioContext.createBiquadFilter()
+            eq.frequency.value = e
+            eq.type = 'peaking'
+            eq.gain.value = 0
+            this.filters.push(eq)
         })
     }
 }
