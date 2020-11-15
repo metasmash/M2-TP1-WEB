@@ -10,6 +10,7 @@ class AudioLector extends HTMLElement {
         this.dest = this.audioContext.destination
 
         this.gainNode = this.audioContext.createGain()
+        this.panNode = this.audioContext.createPanner()
 
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
@@ -22,7 +23,7 @@ class AudioLector extends HTMLElement {
         this.initAttribute().then(() => {
             this.audioPlayer.src = this.srcAttribute
         })
-        this.connectGain()
+        this.connectAudioNodes()
         this.initEventListener()
     }
 
@@ -31,6 +32,14 @@ class AudioLector extends HTMLElement {
             console.log(`Volume changed to: ${e.target.value}`)
             this.gainNode.gain.value = e.target.value
         }
+
+        this.stereoPanner.oninput = (e) => {
+            this.panNode.pan.setValueAtTime(
+                e.target.value,
+                this.audioContext.currentTime
+            )
+        }
+
         this.button.play.addEventListener('click', this.play)
         this.button.pause.addEventListener('click', this.pause)
     }
@@ -43,7 +52,7 @@ class AudioLector extends HTMLElement {
     initQuerySelectors = () => {
         this.audioPlayer = this.shadowRoot.querySelector('.audio-element')
         this.gainSlider = this.shadowRoot.querySelector('#gain')
-        this.panner = this.shadowRoot.querySelector('#panner')
+        this.stereoPanner = this.shadowRoot.querySelector('#panner')
         this.button = {
             play: this.shadowRoot.querySelector('#play'),
             pause: this.shadowRoot.querySelector('#pause'),
@@ -62,7 +71,7 @@ class AudioLector extends HTMLElement {
         })
     }
 
-    connectGain = () => {
+    connectAudioNodes = () => {
         //TODO: fix the connection problem, the audio won't load...
         //Uncomment the lines below to see the problem.
 
@@ -72,7 +81,8 @@ class AudioLector extends HTMLElement {
             this.audioPlayer
         )
         gainAudioPlayerSource.connect(this.gainNode)
-        this.gainNode.connect(this.dest)
+        this.gainNode.connect(this.panNode)
+        this.panNode.connect(this.dest)
     }
 }
 
