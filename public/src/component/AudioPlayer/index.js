@@ -68,11 +68,11 @@ class AudioLector extends HTMLElement {
 
         console.log('connectedGain()')
 
-        //let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
-        //    this.audioPlayer
-        //)
-        // gainAudioPlayerSource.connect(this.gainNode)
-        // this.gainNode.connect(this.dest)
+        let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
+            this.audioPlayer
+        )
+        gainAudioPlayerSource.connect(this.gainNode)
+        this.gainNode.connect(this.dest)
     }
 }
 
