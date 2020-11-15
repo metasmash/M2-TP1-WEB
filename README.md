@@ -46,11 +46,12 @@ Access to our regular html css JS application:
  
 - [ ] On va maintenant cacher le lecteur audio et utiliser la librairie webaudiocontrols qui fournit des WebComponents pour l'audio (boutons rotatifs etc.). Vous importerez donc le fichier webaudiocontrols.js dans le code JavaScript de votre Web Component (import "lib/webaudiocontrols.js" par exemple, après avoir récupéré le fichier). La documentation d'utilisation montre comment ajouter des boutons rotatifs, des sliders, des switches, etc. par exemple pour le réglage du volume, de la balance, etc. Dans la doc on montre comment récupérer des images custom pour les boutons, sliders, etc. Il y a un très large choix (des centaines de spritesheets), à vous de vous amuser...
 
+- [ ] Maintenant, continuez la lecture du cours sur la WebAudio API et lisez les modules 1.5.5 à 1.5.7 sur les visualisations du signal audio. Vous ajouterez à votre WebComponent un ou plusieurs canvas pour visualiser tout d'abord les fréquences. Testez le résultat, n'oubliez pas de jouer sur vos réglages pour voir si cela affecte bien la visualisation.
+
  ### TODO:
 
 - [ ] Pour les plus curieux, un tuto pour générer soi-même ses propres spritesheets webaudiocontrols : https://www.youtube.com/watch?v=z8_0_cJogP4
  
-- [ ] Maintenant, continuez la lecture du cours sur la WebAudio API et lisez les modules 1.5.5 à 1.5.7 sur les visualisations du signal audio. Vous ajouterez à votre WebComponent un ou plusieurs canvas pour visualiser tout d'abord les fréquences. Testez le résultat, n'oubliez pas de jouer sur vos réglages pour voir si cela affecte bien la visualisation.
  
 - [ ] Ajoutez maintenant la visualisation de la forme d'onde et des volumes. Ce serait bien d'avoir un switch fait avec webaudio controls pour passer d'une visualisation des fréquences à une visualisation de la forme d'onde (un toggle). J'aimerais vraiment avoir une visualisation des volumes comme dans le cours mais aussi à l'aide de vu-mètres à aiguille utilisant un webaudiocontrol comme celui présenté ici à la 4ème ligne, 1ère colonne (le Vintage_VuMeter).
  
