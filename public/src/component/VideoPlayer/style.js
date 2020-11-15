@@ -1,4 +1,10 @@
 export default `<style> 
+
+* {
+pointer-events: none;
+}
+
+
 #mainvid {
     width:1080px;
     height:500px;
