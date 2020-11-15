@@ -17,7 +17,9 @@ class AudioLector extends HTMLElement {
 
         this.init().then(async () => {
             await this.initDraw()
-            console.log(`${this.title}: Initialisation is a success!!`)
+            console.log(
+                `${this.innerTitle.innerHTML}: Initialisation is a success!!`
+            )
         })
     }
 
@@ -30,7 +32,7 @@ class AudioLector extends HTMLElement {
 
         try {
             this.connectAudioNodes().then(() => {
-                console.log(`${this.title}: Audio node schema is mounted!`)
+                console.log(`${this.innerTitle}: Audio node schema is mounted!`)
             })
         } catch (e) {
             console.log('there is an error connecting audio nodes!')
@@ -85,11 +87,13 @@ class AudioLector extends HTMLElement {
 
         this.initEqualizer()
     }
+    value
 
     initEventListener = () => {
         this.gainSlider.oninput = (e) => {
             console.log(`Volume changed to: ${e.target.value}`)
             this.gainNode.gain.value = e.target.value
+            this.gainValue.innerHTML = e.target.value
         }
 
         this.stereoPanner.oninput = (e) => {
@@ -105,6 +109,7 @@ class AudioLector extends HTMLElement {
         this.equalizerInputs.forEach((e, i) => {
             e.oninput = (e) => {
                 this.filters[i].gain.value = e.target.value
+                this.equalizerValues[i].innerHTML = e.target.value
             }
         })
     }
@@ -119,11 +124,13 @@ class AudioLector extends HTMLElement {
         this.gainSlider = this.shadowRoot.querySelector('#gain')
         this.stereoPanner = this.shadowRoot.querySelector('#panner')
         this.equalizerInputs = this.shadowRoot.querySelectorAll('[id^=eq-]')
+        this.equalizerValues = this.shadowRoot.querySelectorAll('#eq-value')
+        this.gainValue = this.shadowRoot.querySelector('#gain-value')
         this.button = {
             play: this.shadowRoot.querySelector('#play'),
             pause: this.shadowRoot.querySelector('#pause'),
         }
-        this.title = this.shadowRoot.querySelector('#title')
+        this.innerTitle = this.shadowRoot.querySelector('#title')
         this.canvasWaveForm = this.shadowRoot.querySelector('#wave-form')
         this.canvasFrequencies = this.shadowRoot.querySelector(
             '#frequencies-visualization'

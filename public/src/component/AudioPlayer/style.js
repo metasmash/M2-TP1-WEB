@@ -1,6 +1,10 @@
 export default `
 <style>
 
+#gain-value {
+position:absolute
+}
+
 #root {
     margin-bottom: 5%;
     margin-left:30px;
@@ -42,7 +46,7 @@ a {
 color:white;
 }
 
-  label {
+  #hz-value {
         display: inline-block;
         width: 150px;
         text-align: right;

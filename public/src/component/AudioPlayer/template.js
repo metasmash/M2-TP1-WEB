@@ -9,20 +9,32 @@ template.innerHTML = `${css}
     <button id="pause">Pause</button><br>
     Panner: <input id="panner" type="range" min="-1" max="1" value="0" step="0.01">
     Audio: <input id="gain" type="range" min="0" max="1" value="1" step="0.01">
+    <label id="gain-value" for="gain">1</label>
     <div id="equalizer">
 <div id="equalizer-inputs">
-    <label for="eq-1">Band 60Hz:   </label>
-     <input id="eq-1" type="range" min="-20" max="20" value="0" step="0.01"><br>   
-      <label for="eq-2">Band 170Hz:  </label>
-     <input id="eq-2" type="range" min="-20" max="20" value="0" step="0.01"><br>
-         <label for="eq-3">Band 350Hz:  </label>
-     <input id="eq-3" type="range" min="-20" max="20" value="0" step="0.01"><br>
-         <label for="eq-4">Band 1000Hz: </label>
-      <input id="eq-4" type="range" min="-20" max="20" value="0" step="0.01"><br>
-          <label for="eq-5">Band 3500Hz: </label>
-      <input id="eq-5" type="range" min="-20" max="20" value="0" step="0.01"><br>
-          <label for="eq-6">Band 10000Hz:</label>
+    <label id="hz-value" for="eq-1">Band 60Hz:   </label>
+     <input id="eq-1" type="range" min="-20" max="20" value="0" step="0.01">
+     <label id="eq-value" for="eq-1">0</label>
+     <br>   
+      <label id="hz-value" for="eq-2">Band 170Hz:  </label>
+     <input id="eq-2" type="range" min="-20" max="20" value="0" step="0.01">
+     <label id="eq-value" for="eq-2">0</label>
+     <br>
+         <label id="hz-value" for="eq-3">Band 350Hz:  </label>
+     <input id="eq-3" type="range" min="-20" max="20" value="0" step="0.01">
+     <label id="eq-value" for="eq-3">0</label>
+     <br>
+         <label id="hz-value" for="eq-4">Band 1000Hz: </label>
+      <input id="eq-4" type="range" min="-20" max="20" value="0" step="0.01">
+      <label id="eq-value" for="eq-4">0</label>
+      <br>
+          <label id="hz-value" for="eq-5">Band 3500Hz: </label>
+      <input id="eq-5" type="range" min="-20" max="20" value="0" step="0.01">
+      <label id="eq-value" for="eq-5">0</label>
+      <br>
+          <label id="hz-value" for="eq-6">Band 10000Hz:</label>
       <input id="eq-6" type="range" min="-20" max="20" value="0" step="0.01">
+          <label id="eq-value" for="eq-6">0</label>
     </div>
     </div>
     <canvas id="wave-form"></canvas><br>
