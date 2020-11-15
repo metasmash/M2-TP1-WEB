@@ -32,6 +32,7 @@ class AudioLector extends HTMLElement {
             this.gainNode.gain.value = e.target.value
         }
         this.button.play.addEventListener('click', this.play)
+        this.button.pause.addEventListener('click', this.pause)
     }
 
     initAttribute = async () => {
@@ -51,7 +52,13 @@ class AudioLector extends HTMLElement {
 
     play = () => {
         this.audioPlayer.play().then(() => {
-            console.log('play enabled')
+            console.log('play')
+        })
+    }
+
+    pause = () => {
+        this.audioPlayer.pause().then(() => {
+            console.log('paused')
         })
     }
 
@@ -59,12 +66,13 @@ class AudioLector extends HTMLElement {
         //TODO: fix the connection problem, the audio won't load...
         //Uncomment the lines below to see the problem.
 
+        console.log('connectedGain()')
+
         //let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
         //    this.audioPlayer
         //)
-
-        gainAudioPlayerSource.connect(this.gainNode)
-        this.gainNode.connect(this.dest)
+        // gainAudioPlayerSource.connect(this.gainNode)
+        // this.gainNode.connect(this.dest)
     }
 }
 
