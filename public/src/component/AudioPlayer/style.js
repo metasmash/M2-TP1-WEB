@@ -30,7 +30,7 @@ export default `
 #title {
 }
 
-#wave-form {
+canvas {
     width:400px;
     height:300px;
     background-color: black;
@@ -38,6 +38,9 @@ export default `
     margin-top:10px;
 }
 
+a {
+color:white;
+}
 
 </style>
 `
