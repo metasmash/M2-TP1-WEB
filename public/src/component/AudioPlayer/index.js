@@ -6,12 +6,6 @@ class AudioLector extends HTMLElement {
     constructor() {
         super()
 
-        this.audioContext = new ctx()
-        this.dest = this.audioContext.destination
-
-        this.gainNode = this.audioContext.createGain()
-        this.panNode = this.audioContext.createStereoPanner()
-
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
@@ -19,12 +13,34 @@ class AudioLector extends HTMLElement {
     }
 
     init = () => {
+        this.initAudioNodes()
         this.initQuerySelectors()
         this.initAttribute().then(() => {
             this.audioPlayer.src = this.srcAttribute
         })
-        this.connectAudioNodes()
+
+        this.connectAudioNodes().then(() => {
+            console.log('Audio node schema is mounted!')
+        })
+
         this.initEventListener()
+    }
+
+    connectAudioNodes = async () => {
+        let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
+            this.audioPlayer
+        )
+        gainAudioPlayerSource.connect(this.panNode)
+        this.panNode.connect(this.gainNode)
+        this.gainNode.connect(this.dest)
+    }
+
+    initAudioNodes = () => {
+        this.audioContext = new ctx()
+        this.dest = this.audioContext.destination
+
+        this.gainNode = this.audioContext.createGain()
+        this.panNode = this.audioContext.createStereoPanner()
     }
 
     initEventListener = () => {
@@ -70,20 +86,6 @@ class AudioLector extends HTMLElement {
         this.audioPlayer.pause().then(() => {
             console.log('paused')
         })
-    }
-
-    connectAudioNodes = () => {
-        //TODO: fix the connection problem, the audio won't load...
-        //Uncomment the lines below to see the problem.
-
-        console.log('connectedGain()')
-
-        let gainAudioPlayerSource = this.audioContext.createMediaElementSource(
-            this.audioPlayer
-        )
-        gainAudioPlayerSource.connect(this.panNode)
-        this.panNode.connect(this.gainNode)
-        this.gainNode.connect(this.dest)
     }
 }
 

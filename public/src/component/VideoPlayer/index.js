@@ -77,8 +77,6 @@ class VideoLector extends HTMLElement {
                 : '#FF333380'
         })
     }
-
-    initLoop = () => {}
 }
 
 customElements.define('video-player', VideoLector)

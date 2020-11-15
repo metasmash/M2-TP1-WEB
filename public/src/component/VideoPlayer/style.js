@@ -26,6 +26,7 @@ button {
 #buttonGroup {
     display:flex;
     flex-flow: row wrap;
+    height:10px;
 }
 
 h1 {
