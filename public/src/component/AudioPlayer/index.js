@@ -145,7 +145,7 @@ class AudioLector extends HTMLElement {
         this.analyser.getByteTimeDomainData(this.analyser.dataArray)
 
         canvasContext.lineWidth = 2
-        canvasContext.strokeStyle = 'lightBlue'
+        canvasContext.strokeStyle = 'red'
 
         canvasContext.beginPath()
 
