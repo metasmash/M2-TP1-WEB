@@ -1,6 +1,13 @@
 export default `<style> 
 
-
+#title {
+    pointer-events: none;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
 
 #mainvid {
     width:1080px;

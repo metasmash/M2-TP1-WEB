@@ -39,7 +39,9 @@ template.innerHTML = `${css}
     </div>
     <canvas id="wave-form"></canvas><br>
     <canvas id="frequencies-visualization"></canvas><br>
-    <a href="https://learning.edx.org/course/course-v1:W3Cx+HTML5.2x+2T2020a/block-v1:W3Cx+HTML5.2x+2T2020a+type@sequential+block@f162bb287eca4f04bb22d60b2c5456ac/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@c48cf5b33ed24756b362b749192840ff">
+    <a href="https://learning.edx.org/course/course-v1:W3Cx+HTML5.2x+2T2020a/block-v1:W3Cx+HTML5.2x+2T2020a+
+    type@sequential+block@f162bb287eca4f04bb22d60b2c5456ac/block-v1:W3Cx+HTML5.2x+2T2020a+type@verti
+    cal+block@c48cf5b33ed24756b362b749192840ff">
     Click here to access to MOOC by Michel Buffa</a>
 </div>
 `
