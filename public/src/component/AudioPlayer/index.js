@@ -13,7 +13,7 @@ class AudioLector extends HTMLElement {
         this.equalizerValues = [60, 170, 350, 1000, 3500, 10000]
         this.filters = []
         this.fftSizeWaveForm = 1024
-        this.fftSizeFrequencies = 256
+        this.fftSizeFrequencies = 64
 
         this.init().then(async () => {
             await this.initDraw()
