@@ -13,21 +13,24 @@ template.innerHTML = `${css}
     <div id="frequencies">
     Band 60Hz:   <br> 
     Band 170Hz:   <br>
-    Band 1050Hz:  <br>
+    Band 350Hz:  <br>
     Band 1000Hz:  <br>
-    Band 10500Hz: <br>
+    Band 3500Hz: <br>
     Band 10000Hz: <br>
 </div>
 <div id="equalizer-inputs">
-     <input id="eq-1" type="range" min="-10" max="10" value="0" step="0.01"><br>
-     <input id="eq-2" type="range" min="-10" max="10" value="0" step="0.01"><br>
-     <input id="eq-3" type="range" min="-10" max="10" value="0" step="0.01"><br>
-      <input id="eq-4" type="range" min="-10" max="10" value="0" step="0.01"><br>
-      <input id="eq-5" type="range" min="-10" max="10" value="0" step="0.01"><br>
-      <input id="eq-6" type="range" min="-10" max="10" value="0" step="0.01">
+     <input id="eq-1" type="range" min="-20" max="20" value="0" step="0.01"><br>
+     <input id="eq-2" type="range" min="-20" max="20" value="0" step="0.01"><br>
+     <input id="eq-3" type="range" min="-20" max="20" value="0" step="0.01"><br>
+      <input id="eq-4" type="range" min="-20" max="20" value="0" step="0.01"><br>
+      <input id="eq-5" type="range" min="-20" max="20" value="0" step="0.01"><br>
+      <input id="eq-6" type="range" min="-20" max="20" value="0" step="0.01">
     </div>
     </div>
-    <canvas id="wave-form"></canvas>
+    <canvas id="wave-form"></canvas><br>
+    <canvas id="frequencies-visualization"></canvas><br>
+    <a href="https://learning.edx.org/course/course-v1:W3Cx+HTML5.2x+2T2020a/block-v1:W3Cx+HTML5.2x+2T2020a+type@sequential+block@f162bb287eca4f04bb22d60b2c5456ac/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@c48cf5b33ed24756b362b749192840ff">
+    Click here to access to MOOC by Michel Buffa</a>
 </div>
 `
 
