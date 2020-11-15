@@ -39,12 +39,14 @@ Access to our regular html css JS application:
 
 - [x] En ajoutant ce tag dans une page HTML cela doit fonctionner. Vous mettrez l'ensemble des codes JS  du WebComponent dans un fichier myPlayer/app.js. C'est ce fichier que vous importerez comme un JS module dans la page HTML pour que cela fonctionne.
  
+- [x] Maintenant, regardez les module 1.5.1 à 1.5.4 du MOOC "HTML5 Apps and Games" sur l'API WebAudio. Prenez un peu de temps pour lire les sections jusqu'à l'exemple qui ajoute un equalizer de fréquences.
+ Vous ajouterez dans le code de votre lecteur WebComponent de quoi régler le volume, la balance gauche/droite, et un égaliseur. Si vous vous sentez vous pourrez aussi rajouter un réglage de la réverbération comme proposé dans un autre exemple.
+  
  ### DOING:
-- [ ] Maintenant, regardez les module 1.5.1 à 1.5.4 du MOOC "HTML5 Apps and Games" sur l'API WebAudio. Prenez un peu de temps pour lire les sections jusqu'à l'exemple qui ajoute un equalizer de fréquences.
-Vous ajouterez dans le code de votre lecteur WebComponent de quoi régler le volume, la balance gauche/droite, et un égaliseur. Si vous vous sentez vous pourrez aussi rajouter un réglage de la réverbération comme proposé dans un autre exemple.
  
- ### TODO:
 - [ ] On va maintenant cacher le lecteur audio et utiliser la librairie webaudiocontrols qui fournit des WebComponents pour l'audio (boutons rotatifs etc.). Vous importerez donc le fichier webaudiocontrols.js dans le code JavaScript de votre Web Component (import "lib/webaudiocontrols.js" par exemple, après avoir récupéré le fichier). La documentation d'utilisation montre comment ajouter des boutons rotatifs, des sliders, des switches, etc. par exemple pour le réglage du volume, de la balance, etc. Dans la doc on montre comment récupérer des images custom pour les boutons, sliders, etc. Il y a un très large choix (des centaines de spritesheets), à vous de vous amuser...
+
+ ### TODO:
 
 - [ ] Pour les plus curieux, un tuto pour générer soi-même ses propres spritesheets webaudiocontrols : https://www.youtube.com/watch?v=z8_0_cJogP4
  
