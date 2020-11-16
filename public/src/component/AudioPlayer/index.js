@@ -95,6 +95,9 @@ class AudioLector extends HTMLElement {
             this.gainValue.innerHTML = e.target.value
         }
 
+        this.button.backward.addEventListener('click', this.goBackward)
+        this.button.forward.addEventListener('click', this.gorForward)
+
         this.stereoPanner.oninput = (e) => {
             this.panNode.pan.setValueAtTime(
                 e.target.value,
@@ -113,11 +116,13 @@ class AudioLector extends HTMLElement {
         })
 
         this.switchDrawInput.oninput = (e) => {
-            if (e.target.checked) {
-                this.canvasFrequencies.style.visibility = 'hidden'
-            } else {
-                this.canvasFrequencies.style.visibility = 'visible'
-            }
+            this.canvasFrequencies.style.visibility = e.target.checked
+                ? 'hidden'
+                : 'visible'
+        }
+
+        this.switchLoop.oninput = (e) => {
+            this.audioPlayer.loop = e.target.checked
         }
     }
 
@@ -133,10 +138,13 @@ class AudioLector extends HTMLElement {
         this.equalizerInputs = this.shadowRoot.querySelectorAll('[id^=eq-in-]')
         this.equalizerValues = this.shadowRoot.querySelectorAll('#eq-value')
         this.switchDrawInput = this.shadowRoot.querySelector('.switch')
+        this.switchLoop = this.shadowRoot.querySelector('#loop')
         this.gainValue = this.shadowRoot.querySelector('#gain-value')
         this.button = {
             play: this.shadowRoot.querySelector('#play'),
             pause: this.shadowRoot.querySelector('#pause'),
+            backward: this.shadowRoot.querySelector('#backward'),
+            forward: this.shadowRoot.querySelector('#forward'),
         }
         this.innerTitle = this.shadowRoot.querySelector('#title')
         this.canvasWaveForm = this.shadowRoot.querySelector('#wave-form')
@@ -253,6 +261,14 @@ class AudioLector extends HTMLElement {
     initDraw = async () => {
         requestAnimationFrame(this.drawWaveForm)
         requestAnimationFrame(this.drawFrequencies)
+    }
+
+    gorForward = () => {
+        this.audioPlayer.currentTime += 10
+    }
+
+    goBackward = () => {
+        this.audioPlayer.currentTime -= 10
     }
 }
 
