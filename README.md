@@ -1,4 +1,4 @@
-# M2-TP1-WEB
+# M2 MIAGE INTENSE: Ouali Yannick
 
 _______________
 ### WEBCOMPONENTS
@@ -115,14 +115,16 @@ Access to our regular html css JS application using parcel:
 
 - [x] Ajoutez maintenant la visualisation de la forme d'onde et des volumes. Ce serait bien d'avoir un switch fait avec webaudio controls pour passer d'une visualisation des fréquences à une visualisation de la forme d'onde (un toggle). J'aimerais vraiment avoir une visualisation des volumes comme dans le cours mais aussi à l'aide de vu-mètres à aiguille utilisant un webaudiocontrol comme celui présenté ici à la 4ème ligne, 1ère colonne (le Vintage_VuMeter).
 
-- [x] Alors, avez-vous bien conçu votre WebComponent ? Avez-vous pensé à proposer une API pour que lui-aussi puisse être controlé de l'extérieur par du code JavaScript (par exemple, par quelqu'un qui l'aurait inclu dans sa propre page et qui voudrait l'augmenter, comme vous avez fait avec le WebComponent standard -car cela en est bien un- <audio> ou <video> ?
 
  ### DOING:
  
-- [ ] On va maintenant cacher le lecteur audio et utiliser la librairie webaudiocontrols qui fournit des WebComponents pour l'audio (boutons rotatifs etc.). Vous importerez donc le fichier webaudiocontrols.js dans le code JavaScript de votre Web Component (import "lib/webaudiocontrols.js" par exemple, après avoir récupéré le fichier). La documentation d'utilisation montre comment ajouter des boutons rotatifs, des sliders, des switches, etc. par exemple pour le réglage du volume, de la balance, etc. Dans la doc on montre comment récupérer des images custom pour les boutons, sliders, etc. Il y a un très large choix (des centaines de spritesheets), à vous de vous amuser...
 
 
  ### TODO:
+- [ ] Alors, avez-vous bien conçu votre WebComponent ? Avez-vous pensé à proposer une API pour que lui-aussi puisse être controlé de l'extérieur par du code JavaScript (par exemple, par quelqu'un qui l'aurait inclu dans sa propre page et qui voudrait l'augmenter, comme vous avez fait avec le WebComponent standard -car cela en est bien un- <audio> ou <video> ?
+
+- [ ] On va maintenant cacher le lecteur audio et utiliser la librairie webaudiocontrols qui fournit des WebComponents pour l'audio (boutons rotatifs etc.). Vous importerez donc le fichier webaudiocontrols.js dans le code JavaScript de votre Web Component (import "lib/webaudiocontrols.js" par exemple, après avoir récupéré le fichier). La documentation d'utilisation montre comment ajouter des boutons rotatifs, des sliders, des switches, etc. par exemple pour le réglage du volume, de la balance, etc. Dans la doc on montre comment récupérer des images custom pour les boutons, sliders, etc. Il y a un très large choix (des centaines de spritesheets), à vous de vous amuser...
+
    
 - [ ] Avez-vous utiliser le MVC (le fait que certains attributs puissent être "surveillés"). Par exemple, si on change par programme le volume, il faudrait que le bouton de volume tourne dans la GUI. Et oui, si vous rendez votre composant controllable via une API, vous allez être obligé de mettre en place ce système ! Essayez d'exposer au moins les réglages de volume et de balance dans une API (méthodes avec getter et setters + attributeChangeCallback, voir les transparents du cours).
 
