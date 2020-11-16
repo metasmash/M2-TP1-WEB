@@ -5,11 +5,11 @@ template.innerHTML = `${css}
 <div id="root">
 <h2 id="title"></h2>
     <audio controls crossOrigin="anonymous" class="audio-element" src=""></audio><br>
-    <button id="play">Play</button>
-    <button id="pause">Pause</button>
-    <button id="backward">-10</button>
-    <button id="forward">+10</button>
-    <button id="stop">stop</button>
+    <button id="play"><img src="https://img.icons8.com/android/24/000000/play.png" alt="Play"/></button>
+    <button id="pause"><img src="https://img.icons8.com/android/24/000000/pause.png" alt="Pause"/></button>
+    <button id="backward"><img src="https://img.icons8.com/fluent-systems-regular/24/000000/replay-10.png" alt="Backward"/></button>
+    <button id="forward"><img src="https://img.icons8.com/fluent-systems-regular/24/000000/forward-10.png" alt="Forward"/></button>
+    <button id="stop"><img src="https://img.icons8.com/android/24/000000/stop.png" alt="stop"/></button>
     Loop: <input id="loop" type="checkbox"><br>
     Panner: <input id="panner" type="range" min="-1" max="1" value="0" step="0.1">
     Audio: <input id="gain" type="range" min="0" max="1" value="1" step="0.01">
