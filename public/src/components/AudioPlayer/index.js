@@ -106,6 +106,7 @@ export default class AudioLector extends HTMLElement {
 
         this.button.play.addEventListener('click', this.play)
         this.button.pause.addEventListener('click', this.pause)
+        this.button.stop.addEventListener('click', this.stop)
 
         this.equalizerInputs.forEach((e, i) => {
             e.oninput = (e) => {
@@ -144,6 +145,7 @@ export default class AudioLector extends HTMLElement {
             pause: this.shadowRoot.querySelector('#pause'),
             backward: this.shadowRoot.querySelector('#backward'),
             forward: this.shadowRoot.querySelector('#forward'),
+            stop: this.shadowRoot.querySelector('#stop'),
         }
         this.innerTitle = this.shadowRoot.querySelector('#title')
         this.canvasWaveForm = this.shadowRoot.querySelector('#wave-form')
@@ -268,6 +270,11 @@ export default class AudioLector extends HTMLElement {
 
     goBackward = () => {
         this.audioPlayer.currentTime -= 10
+    }
+
+    stop = () => {
+        this.audioPlayer.pause()
+        this.audioPlayer.currentTime = 0
     }
 }
 

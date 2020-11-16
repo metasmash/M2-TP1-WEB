@@ -9,6 +9,7 @@ template.innerHTML = `${css}
     <button id="pause">Pause</button>
     <button id="backward">-10</button>
     <button id="forward">+10</button>
+    <button id="stop">stop</button>
     Loop: <input id="loop" type="checkbox"><br>
     Panner: <input id="panner" type="range" min="-1" max="1" value="0" step="0.1">
     Audio: <input id="gain" type="range" min="0" max="1" value="1" step="0.01">
