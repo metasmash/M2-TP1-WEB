@@ -1,5 +1,5 @@
-// Here, we use index.js to import every component and use it as a module.
-// This module is imported inside index.html, so we can freely use every custom web component :-)
+// Here we define a module that export our components.
+//RE-USE: import {ComponentName} from '{path}/index.js'
 
-import './component/VideoPlayer/index.js'
-import './component/AudioPlayer/index.js'
+export { default as AudioPlayer } from './components/AudioPlayer/index.js'
+export { default as VideoPlayer } from './components/VideoPlayer/index.js'

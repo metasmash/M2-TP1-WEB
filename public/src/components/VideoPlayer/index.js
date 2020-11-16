@@ -1,6 +1,6 @@
 import template from './template.js'
 
-class VideoLector extends HTMLElement {
+export default class VideoLector extends HTMLElement {
     constructor() {
         super()
 

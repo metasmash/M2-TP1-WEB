@@ -3,7 +3,7 @@ import '../../../lib/webaudio-controls.js'
 
 let ctx = window.AudioContext || window.webkitAudioContext
 
-class AudioLector extends HTMLElement {
+export default class AudioLector extends HTMLElement {
     constructor() {
         super()
 
