@@ -87,7 +87,6 @@ class AudioLector extends HTMLElement {
 
         this.initEqualizer()
     }
-    value
 
     initEventListener = () => {
         this.gainSlider.oninput = (e) => {
