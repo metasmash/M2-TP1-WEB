@@ -10,7 +10,7 @@ export default class AudioLector extends HTMLElement {
         this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-        this.equalizerValues = [60, 170, 350, 1000, 3500, 10000]
+        this.equalizerFrequencies = [60, 170, 350, 1000, 3500, 10000]
         this.filters = []
         this.fftSizeWaveForm = 1024
         this.fftSizeFrequencies = 64
@@ -161,7 +161,7 @@ export default class AudioLector extends HTMLElement {
     }
 
     initEqualizer = () => {
-        this.equalizerValues.forEach((freq) => {
+        this.equalizerFrequencies.forEach((freq) => {
             const eq = this.audioContext.createBiquadFilter()
             eq.frequency.value = freq
             eq.type = 'peaking'
