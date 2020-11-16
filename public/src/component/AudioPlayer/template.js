@@ -41,7 +41,7 @@ template.innerHTML = `${css}
   <input type="checkbox">
   <span class="slider round"></span>
 </label><br>
-<div class="wrapper">
+<div class="canvas-wrapper">
     <canvas id="wave-form"></canvas>
     <canvas id="frequencies-visualization"></canvas><br>
 </div>
