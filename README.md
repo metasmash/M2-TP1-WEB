@@ -3,6 +3,13 @@
 _______________
 #### PLEASE USE MICROSOFT EDGE
 #### IDK WHY CHROME DOESNT WORK FFS
+(probably because we need to serve media elements through a web-server and fetch it inside the application
+with allow cross origin = *)
+It not always work on chrome.
+It does not work on Safari.
+It works perfectly well on:
+### MICROSOFT EDGE
+
 ![alt text](https://cdn.iconscout.com/icon/free/png-256/microsoft-edge-4-722714.png)
 _______________
 
@@ -27,15 +34,18 @@ Run the web server:
 
 If it doesnt work, use your own live-server module.
 
+You can access to our webpage inside
+`public/index.html` running your own webserver.
+
 You can access to the application through:
 
 [BUFFA SOUND WEBSITE!!!](https://buffa-sound.tk)
 
-Access to our regular html css JS application:
+Access to our regular html css JS application using parcel:
 
-[http://localhost:9998](http://localhost:1234)
+[http://localhost:1234](http://localhost:1234)
 
-## How to use
+## How to use our custom component:
 
 Go to index.html on public/index.html, and insert a custom component defined like this:
 
@@ -53,6 +63,8 @@ Go to index.html on public/index.html, and insert a custom component defined lik
 
 `TITLE `  Our title we want to display for our audio-player component
 
+## TASKS:
+
 ### DONE:
 
 - [x] Créer une  page HTML avec à l'intérieur un lecteur audio ou un lecteur video, vous pourrez reprendre le code d'exemples du MOOC présentant l'API des lecteurs audio et vidéo
@@ -68,17 +80,15 @@ Go to index.html on public/index.html, and insert a custom component defined lik
   
 - [x] Maintenant, continuez la lecture du cours sur la WebAudio API et lisez les modules 1.5.5 à 1.5.7 sur les visualisations du signal audio. Vous ajouterez à votre WebComponent un ou plusieurs canvas pour visualiser tout d'abord les fréquences. Testez le résultat, n'oubliez pas de jouer sur vos réglages pour voir si cela affecte bien la visualisation.
 
+- [x] Ajoutez maintenant la visualisation de la forme d'onde et des volumes. Ce serait bien d'avoir un switch fait avec webaudio controls pour passer d'une visualisation des fréquences à une visualisation de la forme d'onde (un toggle). J'aimerais vraiment avoir une visualisation des volumes comme dans le cours mais aussi à l'aide de vu-mètres à aiguille utilisant un webaudiocontrol comme celui présenté ici à la 4ème ligne, 1ère colonne (le Vintage_VuMeter).
+
  ### DOING:
  
 - [ ] On va maintenant cacher le lecteur audio et utiliser la librairie webaudiocontrols qui fournit des WebComponents pour l'audio (boutons rotatifs etc.). Vous importerez donc le fichier webaudiocontrols.js dans le code JavaScript de votre Web Component (import "lib/webaudiocontrols.js" par exemple, après avoir récupéré le fichier). La documentation d'utilisation montre comment ajouter des boutons rotatifs, des sliders, des switches, etc. par exemple pour le réglage du volume, de la balance, etc. Dans la doc on montre comment récupérer des images custom pour les boutons, sliders, etc. Il y a un très large choix (des centaines de spritesheets), à vous de vous amuser...
 
 
  ### TODO:
-
- 
- 
-- [ ] Ajoutez maintenant la visualisation de la forme d'onde et des volumes. Ce serait bien d'avoir un switch fait avec webaudio controls pour passer d'une visualisation des fréquences à une visualisation de la forme d'onde (un toggle). J'aimerais vraiment avoir une visualisation des volumes comme dans le cours mais aussi à l'aide de vu-mètres à aiguille utilisant un webaudiocontrol comme celui présenté ici à la 4ème ligne, 1ère colonne (le Vintage_VuMeter).
- 
+  
 - [ ] Alors, avez-vous bien conçu votre WebComponent ? Avez-vous pensé à proposer une API pour que lui-aussi puisse être controlé de l'extérieur par du code JavaScript (par exemple, par quelqu'un qui l'aurait inclu dans sa propre page et qui voudrait l'augmenter, comme vous avez fait avec le WebComponent standard -car cela en est bien un- <audio> ou <video> ?
  
 - [ ] Avez-vous utiliser le MVC (le fait que certains attributs puissent être "surveillés"). Par exemple, si on change par programme le volume, il faudrait que le bouton de volume tourne dans la GUI. Et oui, si vous rendez votre composant controllable via une API, vous allez être obligé de mettre en place ce système ! Essayez d'exposer au moins les réglages de volume et de balance dans une API (méthodes avec getter et setters + attributeChangeCallback, voir les transparents du cours).
