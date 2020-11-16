@@ -126,6 +126,10 @@ export default class AudioLector extends HTMLElement {
         this.switchLoop.oninput = (e) => {
             this.audioPlayer.loop = e.target.checked
         }
+
+        this.audioPlayer.onplay = () => {
+            this.audioContext.resume()
+        }
     }
 
     initAttribute = async () => {
@@ -158,6 +162,7 @@ export default class AudioLector extends HTMLElement {
 
     play = () => {
         this.audioPlayer.play()
+        this.audioContext.resume()
     }
 
     pause = () => {
