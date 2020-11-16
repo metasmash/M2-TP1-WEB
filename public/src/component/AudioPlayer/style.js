@@ -26,6 +26,8 @@ position:absolute
     padding:10px;
     border-radius: 10px;
     border: solid #d3fffd 1px;
+    box-shadow: #7A7A7A40 0px 5px 15px;
+    \t-webkit-box-shadow: 0px 5px 15px #969696;
 }
 
 :focus { outline: none; }
