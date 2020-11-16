@@ -91,7 +91,6 @@ class AudioLector extends HTMLElement {
 
     initEventListener = () => {
         this.gainSlider.oninput = (e) => {
-            console.log(`Volume changed to: ${e.target.value}`)
             this.gainNode.gain.value = e.target.value
             this.gainValue.innerHTML = e.target.value
         }
@@ -112,6 +111,14 @@ class AudioLector extends HTMLElement {
                 this.equalizerValues[i].innerHTML = e.target.value
             }
         })
+
+        this.switchDrawInput.oninput = (e) => {
+            if (e.target.checked) {
+                this.canvasFrequencies.style.visibility = 'hidden'
+            } else {
+                this.canvasFrequencies.style.visibility = 'visible'
+            }
+        }
     }
 
     initAttribute = async () => {
@@ -123,8 +130,9 @@ class AudioLector extends HTMLElement {
         this.audioPlayer = this.shadowRoot.querySelector('.audio-element')
         this.gainSlider = this.shadowRoot.querySelector('#gain')
         this.stereoPanner = this.shadowRoot.querySelector('#panner')
-        this.equalizerInputs = this.shadowRoot.querySelectorAll('[id^=eq-]')
+        this.equalizerInputs = this.shadowRoot.querySelectorAll('[id^=eq-in-]')
         this.equalizerValues = this.shadowRoot.querySelectorAll('#eq-value')
+        this.switchDrawInput = this.shadowRoot.querySelector('.switch')
         this.gainValue = this.shadowRoot.querySelector('#gain-value')
         this.button = {
             play: this.shadowRoot.querySelector('#play'),
