@@ -32,7 +32,9 @@ export default class AudioLector extends HTMLElement {
 
         try {
             this.connectAudioNodes().then(() => {
-                console.log(`${this.innerTitle}: Audio node schema is mounted!`)
+                console.log(
+                    `${this.innerTitle.innerHTML}: Audio node schema is mounted!`
+                )
             })
         } catch (e) {
             console.log('there is an error connecting audio nodes!')
