@@ -6,7 +6,10 @@ template.innerHTML = `${css}
 <h2 id="title"></h2>
     <audio controls crossOrigin="anonymous" class="audio-element" src=""></audio><br>
     <button id="play">Play</button>
-    <button id="pause">Pause</button><br>
+    <button id="pause">Pause</button>
+    <button id="backward">-10</button>
+    <button id="forward">+10</button>
+    Loop: <input id="loop" type="checkbox"><br>
     Panner: <input id="panner" type="range" min="-1" max="1" value="0" step="0.01">
     Audio: <input id="gain" type="range" min="0" max="1" value="1" step="0.01">
     <label id="gain-value" for="gain">1</label>
